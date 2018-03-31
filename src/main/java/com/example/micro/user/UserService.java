@@ -12,28 +12,26 @@ public class UserService {
     private UserRepository userRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository){
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    public User createOrUpdateUser(User user){
+    public User createOrUpdateUser(User user) {
         return userRepository.save(user);
     }
 
     public void delete(long id) {
-        if(userRepository.existsById(id))
+        if (userRepository.existsById(id))
             userRepository.deleteById(id);
     }
 
-    public Iterable<User> findAll(){
+    public Iterable<User> findAll() {
         return userRepository.findAll();
     }
 
-    public Optional<User> findUserById(long id){
+    public Optional<User> findUserById(long id) {
         return userRepository.findById(id);
     }
-
-
 
 
 }

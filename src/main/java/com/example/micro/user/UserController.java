@@ -15,23 +15,23 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    public UserController(UserService userService){
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
     @GetMapping(value = "/{id}")
-    public User findUserById(@PathVariable("id") long id){
+    public User findUserById(@PathVariable("id") long id) {
         Optional<User> user = userService.findUserById(id);
         return user.isPresent() ? user.get() : null;
     }
 
     @PostMapping
-    public User createUser(@RequestBody @Validated User user){
+    public User createUser(@RequestBody @Validated User user) {
         return userService.createOrUpdateUser(user);
     }
 
     @PutMapping
-    public User update(@RequestBody User user){
+    public User update(@RequestBody User user) {
         return userService.createOrUpdateUser(user);
     }
 
@@ -41,7 +41,7 @@ public class UserController {
     }
 
     @GetMapping
-    public Iterable<User> findAll(){
+    public Iterable<User> findAll() {
         return userService.findAll();
     }
 }

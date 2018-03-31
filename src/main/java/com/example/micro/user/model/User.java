@@ -2,8 +2,6 @@ package com.example.micro.user.model;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 import lombok.experimental.Tolerate;
 
 import javax.persistence.Column;
@@ -28,5 +26,6 @@ public class User {
     private String name;
 
     @Tolerate
-    public User(){}
+    public User() {
+    }
 }
